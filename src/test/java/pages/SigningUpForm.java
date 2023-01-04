@@ -14,8 +14,11 @@ public class SigningUpForm {
     By ssn = By.id("customer.ssn");
     By username = By.id("customer.username");
     By password = By.id("customer.password");
-    By confirmPassword = By.id("repeatedPassword");
+    By confirm = By.id("repeatedPassword");
     By buttonRegister = By.cssSelector("#customerForm input.button");
+    By confirmPassword = By.id("repeatedPassword");
+    By title = By.className("title");
+    By messageOfRegistration = By.cssSelector("#rightPanel p");
     public SigningUpForm(WebDriver driver){
         this.driver = driver;
     }
@@ -50,5 +53,11 @@ public class SigningUpForm {
     }
     public void clickToRegister(){
         driver.findElement(buttonRegister).click();
+    }
+    public String getTitleOfForm(){
+        return driver.findElement(title).getText();
+    }
+    public String getMessageOfRegistration(){
+        return driver.findElement(messageOfRegistration).getText();
     }
 }
