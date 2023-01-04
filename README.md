@@ -1,6 +1,6 @@
 # TestBank
 Create Automation test on: 
-- JAVA
+- Java
 - Selenium
 - REST Assured 
 - TestGN
