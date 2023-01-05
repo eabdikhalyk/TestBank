@@ -4,3 +4,4 @@ Create Automation test on:
 - Selenium
 - REST Assured 
 - TestGN
+- Page Object
