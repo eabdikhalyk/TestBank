@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.AccountServices;
 import pages.HomePage;
 import pages.SigningUpForm;
 
@@ -23,6 +24,7 @@ public class TestBank {
     String password = "pa$$w0rd";
     String titleOFSignUpForm = "Signing up is easy!";
     String messageOfRegistration = "Your account was created successfully. You are now logged in.";
+    String titleOfAccountServices = "Accounts Overview";
     @BeforeMethod
     public void setup(){
         WebDriverManager.chromedriver().setup();
@@ -51,11 +53,13 @@ public class TestBank {
     @Test(priority=2)
     public void login(){
         HomePage homePage = new HomePage(driver);
+        AccountServices accountServices =  new AccountServices(driver);
         homePage.enterUserName(userName);
         homePage.enterPassword(password);
         homePage.clickToLogin();
+        Assert.assertEquals(accountServices.getTitleOfAccountServices(),titleOfAccountServices);
     }
-   // @AfterMethod
+    @AfterMethod
     public void driverQuit(){
         driver.quit();
     }
