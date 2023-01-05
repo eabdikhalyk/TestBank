@@ -30,7 +30,7 @@ public class TestBank {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://parabank.parasoft.com/parabank/index.htm");
     }
-    @Test
+    @Test(priority=1)
     public void registerAccount(){
         HomePage homePage = new HomePage(driver);
         SigningUpForm signUp = new SigningUpForm(driver);
@@ -47,7 +47,15 @@ public class TestBank {
         signUp.clickToRegister();
         Assert.assertEquals(signUp.getMessageOfRegistration(), messageOfRegistration);
     }
-    @AfterMethod
+
+    @Test(priority=2)
+    public void login(){
+        HomePage homePage = new HomePage(driver);
+        homePage.enterUserName(userName);
+        homePage.enterPassword(password);
+        homePage.clickToLogin();
+    }
+   // @AfterMethod
     public void driverQuit(){
         driver.quit();
     }
