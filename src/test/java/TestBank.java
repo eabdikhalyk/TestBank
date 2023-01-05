@@ -57,7 +57,7 @@ public class TestBank {
         homePage.enterUserName(userName);
         homePage.enterPassword(password);
         homePage.clickToLogin();
-        Assert.assertEquals(accountServices.getTitleOfAccountServices(),titleOfAccountServices);
+        Assert.assertEquals(accountServices.getTitle(),titleOfAccountServices);
     }
     @AfterMethod
     public void driverQuit(){

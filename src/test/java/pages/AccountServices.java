@@ -9,7 +9,7 @@ public class AccountServices {
     public AccountServices(WebDriver driver){
         this.driver =  driver;
     }
-    public String getTitleOfAccountServices(){
+    public String getTitle(){
         return driver.findElement(titleOfAccountServices).getText();
     }
 }
