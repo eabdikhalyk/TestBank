@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import pages.AccountServices;
 import pages.HomePage;
 import pages.SigningUpForm;
-
 import java.util.concurrent.TimeUnit;
 
 public class TestBank {
@@ -25,6 +24,7 @@ public class TestBank {
     String titleOFSignUpForm = "Signing up is easy!";
     String messageOfRegistration = "Your account was created successfully. You are now logged in.";
     String titleOfAccountServices = "Accounts Overview";
+    
     @BeforeMethod
     public void setup(){
         WebDriverManager.chromedriver().setup();
@@ -32,6 +32,7 @@ public class TestBank {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://parabank.parasoft.com/parabank/index.htm");
     }
+    
     @Test(priority=1)
     public void registerAccount(){
         HomePage homePage = new HomePage(driver);
@@ -59,6 +60,7 @@ public class TestBank {
         homePage.clickToLogin();
         Assert.assertEquals(accountServices.getTitle(),titleOfAccountServices);
     }
+    
     @AfterMethod
     public void driverQuit(){
         driver.quit();
